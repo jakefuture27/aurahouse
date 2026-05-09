@@ -48,17 +48,30 @@
     </section>
     <section id="pfp-maker" class="pfp-section fade-in">
         <div class="glass-card pfp-container">
-            <h2>Aura Generator</h2>
-            <p>Upload your photo to get stamped with the Aurahouse badge. Perfect for your next PFP.</p>
+            <h2>AI Aura Generator</h2>
+            <p>Upload your photo to get transformed by AI. The AI will blend you with the Aurahouse mascot to create an epic PFP.</p>
             
+            <div class="api-key-container">
+                <input type="password" id="openai-key" placeholder="Enter OpenAI API Key (sk-...)" class="input-field">
+                <p class="api-note">Your key is stored securely in your browser and never saved to our server.</p>
+            </div>
+
             <div class="upload-zone" id="upload-zone">
                 <input type="file" id="pfp-upload" accept="image/*" style="display: none;">
                 <button id="upload-btn" class="btn-primary">Choose Image</button>
                 <p class="upload-text">or drag and drop here</p>
             </div>
 
+            <div id="loading-zone" style="display: none;" class="loading-zone">
+                <div class="spinner"></div>
+                <p>AI is generating your Aura... this takes about 10 seconds.</p>
+            </div>
+
             <div class="preview-zone" id="preview-zone" style="display: none;">
-                <canvas id="pfp-canvas" width="800" height="800"></canvas>
+                <img id="ai-result-img" alt="AI Generated PFP" class="ai-result">
+                <!-- Hidden canvas for processing -->
+                <canvas id="pfp-canvas" width="512" height="512" style="display: none;"></canvas>
+                
                 <div class="pfp-actions">
                     <button id="download-btn" class="btn-primary">Download PFP</button>
                     <button id="reset-btn" class="btn-secondary">Start Over</button>

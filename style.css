@@ -233,15 +233,65 @@ code {
     align-items: center;
 }
 
-#pfp-canvas {
+/* AI Generator additions */
+.api-key-container {
+    margin: 2rem auto;
+    max-width: 400px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+    border-color: var(--accent-color);
+}
+
+.api-note {
+    font-size: 0.8rem !important;
+    margin-top: 0.5rem;
+    color: var(--accent-secondary) !important;
+}
+
+.loading-zone {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 85, 255, 0.2);
+    border-top: 4px solid var(--accent-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.ai-result {
     max-width: 100%;
     width: 300px;
     height: 300px;
-    border-radius: 50%;
+    border-radius: 20px;
     border: 4px solid var(--accent-color);
     box-shadow: 0 0 30px rgba(255, 85, 255, 0.3);
     margin-bottom: 2rem;
-    background-color: var(--bg-color);
 }
 
 .pfp-actions {
