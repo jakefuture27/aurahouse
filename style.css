@@ -176,7 +176,7 @@ code {
 }
 
 /* Sections */
-.about-section, .tokenomics-section {
+.about-section, .tokenomics-section, .pfp-section {
     padding: 6rem 10%;
 }
 
@@ -199,6 +199,61 @@ code {
     font-size: 1.2rem;
     line-height: 1.6;
     color: var(--text-secondary);
+}
+
+/* PFP Maker */
+.pfp-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.upload-zone {
+    margin-top: 2rem;
+    border: 2px dashed var(--glass-border);
+    border-radius: 16px;
+    padding: 4rem 2rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.upload-zone:hover, .upload-zone.dragover {
+    border-color: var(--accent-color);
+    background: rgba(255, 85, 255, 0.05);
+}
+
+.upload-text {
+    margin-top: 1rem;
+    font-size: 0.9rem !important;
+}
+
+.preview-zone {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#pfp-canvas {
+    max-width: 100%;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 4px solid var(--accent-color);
+    box-shadow: 0 0 30px rgba(255, 85, 255, 0.3);
+    margin-bottom: 2rem;
+    background-color: var(--bg-color);
+}
+
+.pfp-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+@media (max-width: 600px) {
+    .pfp-actions {
+        flex-direction: column;
+    }
 }
 
 .tokenomics-section h2 {
