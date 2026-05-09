@@ -1,10 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Dynamic Mouse Aura
+    document.addEventListener('mousemove', (e) => {
+        document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+        document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+    });
+
     // Copy CA to clipboard
     const copyBtn = document.getElementById('copy-btn');
     const caText = document.getElementById('ca-text').innerText;
 
     if (copyBtn) {
-        copyBtn.addEventListener('click', async () => {
+        copyBtn.addEventListener('click', async (e) => {
+            // Ripple Effect
+            const rect = copyBtn.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            const ripple = document.createElement('span');
+            ripple.classList.add('aura-ripple');
+            ripple.style.width = `${size}px`;
+            ripple.style.height = `${size}px`;
+            ripple.style.left = `${x}px`;
+            ripple.style.top = `${y}px`;
+            
+            copyBtn.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 600);
+
             try {
                 await navigator.clipboard.writeText(caText);
                 const originalText = copyBtn.innerText;
